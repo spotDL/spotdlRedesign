@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+.mypy_cache/
+
+# VSCode
+.vscode/
+
+# Misc
+*.temp.*
+*.test.*
+*.misc.*
