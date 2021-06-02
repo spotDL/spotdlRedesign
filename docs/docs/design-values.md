@@ -1,10 +1,9 @@
 # Design Standards<a name="design-standards"></a>
 
-<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
-- [Design Standards](#design-standards)
-  - [The Deciding Factors (our design values)](#the-deciding-factors-our-design-values)
-  - [A few general notes](#a-few-general-notes)
+- [The Deciding Factors (our design values)](#the-deciding-factors-our-design-values)
+- [A few general notes](#a-few-general-notes)
 
 <!-- mdformat-toc end -->
 

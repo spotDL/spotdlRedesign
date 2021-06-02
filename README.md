@@ -44,7 +44,7 @@ Contributed code broadly needs to satisfy two sets of criteria to be accepted:
    - [Python Code Standards](docs/docs/python.md#python-code-standards)
    - [Markdown Styling](docs/docs/markdown.md#markdown-styling)
 
-2. Design Standards (details can be seen [here](docs/docs/design%20values.md))):
+2. Design Standards (details can be seen [here](docs/docs/design-values.md)):
 
    - Simplicity
 

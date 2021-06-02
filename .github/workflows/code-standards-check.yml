@@ -1,0 +1,46 @@
+name: Code Standards Check (MyPy/Pylint/Black)
+
+on: [push, pull_request]
+
+jobs:
+  checks:
+    runs-on: windows-latest
+          
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python v3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      
+      - name: Update pip/Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+          pip install mypy pylint black
+          pip install mdformat-gfm mdformat-toc
+      
+      - name: Run mdformat (github flavoured) check
+        run: |
+          mdformat --check --number --wrap 90 ./docs
+      
+      - name: Check for docstring's
+        run: |
+          pylint --disable=all --limit-inference-results 0 --enable missing-docstring empty-docstring ./spotdl
+      
+      - name: Check McCabe Complexity
+        run: |
+          pylint  --disable=all --limit-inference-results 0 --load-plugins=pylint.extensions.mccabe --enable too-complex ./spotdl
+
+      - name: Run Pylint check
+        run: |
+          pylint --fail-under 9 --limit-inference-results 0 ./spotdl
+      
+      - name: Run MyPy check
+        run: |
+          mypy --ignore-missing-imports --follow-imports silent ./spotdl
+      
+      - name: Run Black check
+        run: |
+          black --check ./spotdl
