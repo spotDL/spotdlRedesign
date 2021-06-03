@@ -1,0 +1,37 @@
+<mxfile host="65bd71144e" modified="2021-03-02T08:23:08.220Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="Tf4GZc6YM-EwRXWp4Ff1" version="14.2.4" type="embed">
+    <diagram id="ILaKFgd0tkDVPzhWKZRe" name="Page-1">
+        <mxGraphModel dx="734" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="12" value="YES" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FF8000;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" source="6" target="8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="NO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" source="6" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Is more than 1/3 of the &quot;control flow&quot; changed&lt;br&gt;(OR)&lt;br&gt;Is there a significant change in control flow?" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillColor=none;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="30" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="YES" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" source="8" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="NO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" source="8" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Is it &quot;over-writing&quot; the logic of a previous commit?" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillColor=none;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="160" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Drop the old commit" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillColor=none;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="160" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Retain this a s seperate commit, reorder git history so that this commit and the old one are sequential" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillColor=none;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="160" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Squash this commit into the previous related commit" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillColor=none;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;fillOpacity=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e" modified="2021-03-02T08:37:04.443Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="WnTyy6CoVMExhE0mH5Jc" version="14.2.4" type="embed">
+    <diagram id="dUW0fSry17G12EcXkk7v" name="Page-1">
+        <mxGraphModel dx="478" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="20" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" edge="1" parent="1" source="9" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" edge="1" parent="1" source="9" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;span style=&quot;&quot;&gt;Would this heading specify the &quot;SINGLE change&quot; made clearly even if read without context (by another programmer ofc)?&lt;/span&gt;" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" edge="1" parent="1" source="10" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" edge="1" parent="1" source="10" target="16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;span style=&quot;&quot;&gt;Does the body detail why changes were made?&lt;/span&gt;" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="35" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;span style=&quot;&quot;&gt;Detail the resons for the changes&lt;/span&gt;" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="35" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;span style=&quot;&quot;&gt;Rewrite the heading&lt;/span&gt;" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" edge="1" parent="1" source="16" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" edge="1" parent="1" source="16" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;span style=&quot;&quot;&gt;Does the body also detail how the changes adress the issue/feature-request?&lt;/span&gt;" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="365" y="140" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;span style=&quot;&quot;&gt;Detail how the issue is dealt with&lt;/span&gt;" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="140" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Commit" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
