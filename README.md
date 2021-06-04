@@ -39,15 +39,24 @@ This project is licensed under The Universal Permissive License by
 
 Contributed code broadly needs to satisfy two sets of criteria to be accepted:
 
-1. Code Standards:
-
-   - [Python Code Standards](docs/docs/python.md#python-code-standards)
-   - [Markdown Styling](docs/docs/markdown.md#markdown-styling)
-
-2. Design Standards (details can be seen [here](docs/docs/design-values.md)):
+1. [Design Standards](docs/docs/design-values.md):
 
    - Simplicity
 
    - Focussed Functionality
 
    - Maintainability
+
+2. Code Standards:
+
+   - [Python Code Standards](docs/docs/python.md#python-code-standards)
+
+   - [Markdown Styling](docs/docs/markdown.md#markdown-styling)
+
+If your interested in contributing, you might find it helpful to read the following:
+
+- [An overview of the plugin-system](docs/models/.idea/plugin-system.md)
+
+- [Good git practices (commit messages & git history)](docs/docs/git.md)
+
+- [Supplementary docs - what are they, why do we need them?](docs/docs/supplementary-docs.md)
