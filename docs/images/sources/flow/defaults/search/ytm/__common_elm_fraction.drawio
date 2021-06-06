@@ -1,0 +1,104 @@
+<mxfile>
+    <diagram id="zfWm-PsVVecucm664Ruj" name="Page-1">
+        <mxGraphModel dx="734" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;align=left;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="no&lt;br&gt;&amp;nbsp; &amp;nbsp;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="2" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="src_list or res_list is actually a str?" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="3" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="split the string into individual words" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="5" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="remove all non alpha-numeric characters from every word, remove repeat words" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="135" width="170" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="8" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="exit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;align=left;" edge="1" parent="1" source="8" target="22">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="for each src_word in the prepared source list" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="140" width="135" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="10" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="10" target="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="649" y="110"/>
+                            <mxPoint x="526" y="110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="for each res_word in the prepared result list" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="140" width="135" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="12" target="10">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="780" y="50"/>
+                            <mxPoint x="780" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="yes&lt;br&gt;&amp;nbsp; &amp;nbsp;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="12" target="17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="src_word is similar&lt;br&gt;to res_word?" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="622.5" y="20" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="no" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;sketch=1;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="742.5" y="30" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="17" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="increment common_word counter" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="432.5" y="20" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="exit" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;sketch=1;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="619" y="120" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="src_list length &amp;gt; res_list length?" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="432.5" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;align=right;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="22" target="26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="26" target="30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="grater_length = src_list length" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;align=left;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="22" target="28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" edge="1" parent="1" source="28" target="30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="grater_length = res_list length" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="return (common_word_count / grater_length)" style="whiteSpace=wrap;html=1;sketch=1;strokeColor=#FF8000;fillOpacity=0;labelBackgroundColor=none;fontColor=#6EA31D;" vertex="1" parent="1">
+                    <mxGeometry x="367.5" y="440" width="250" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,57 @@
+<mxfile>
+    <diagram id="M3h1bQyJXFAb9gHgtY1F" name="Page-1">
+        <mxGraphModel dx="734" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="define a str `prepared_word`" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="exit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;align=left;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" edge="1" parent="1" source="3" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="for each letter in&lt;br&gt;input word" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="yes&lt;br&gt;&amp;nbsp; &amp;nbsp;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" edge="1" parent="1" source="4" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" edge="1" parent="1" source="4" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="460" y="40"/>
+                            <mxPoint x="280" y="40"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="letter is&lt;br&gt;alpha-numeric ?&lt;br&gt;&lt;br&gt;(spaces are not alpha-numeric)" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="70" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" edge="1" parent="1" source="5" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="280" y="140" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="645" y="40"/>
+                            <mxPoint x="280" y="40"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="append letter to&lt;br&gt;prepared_word" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" vertex="1" parent="1">
+                    <mxGeometry x="584.5" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="no" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" vertex="1" parent="1">
+                    <mxGeometry x="455" y="50" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="return&lt;br&gt;prepared_word" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fontColor=#6EA31D;fillOpacity=0;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
