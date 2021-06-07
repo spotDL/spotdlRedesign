@@ -24,7 +24,7 @@ def __query_ytmusic(
     ### Returns
     - `List[dict]`, [YTM](https://music.youtube.com) query results as dict. Each dict contains the
     following keys:
-        - name: `str`, name of the result
+        - name: `str`, name/title of the result
         - album: `Optional[str]`, name of the result's album if available, else `None`
         - duration: `int`, length of the result in seconds
         - artists: `List[str]`, names of all contributing artists or usename of uploader
@@ -35,9 +35,8 @@ def __query_ytmusic(
 
     ### Function / Notes
     - We assume that results are always found
-    - Results with the words "cover", "festival", "amv", "male", "female" or "switching vocals"
-    are dumped. The words "male" and "female" are included to handle "Male Version" &
-    "Female Version" type song covers.
+    - Results with the words "cover", "festival", "amv", "male version", "female version" or
+    "switching vocals" are dumped.
     """
 
     # !construct query and get results
@@ -78,9 +77,7 @@ def __query_ytmusic(
         # !determine the return dict's 'artists' field
         # we assume that the result's 'artists' field is never `None` as YTM returns the uploader's
         # username if the song's artist is unknown (which is usually what happens for videos)
-        res_artists = []
-        for artist in result["artists"]:
-            res_artists.append(artist["name"])
+        res_artists = [artist["name"] for artist in result["artists"]]
 
         # !validate the results title
         # 'male' and 'female' are included for 'male version'/'female version' results to be
@@ -91,8 +88,8 @@ def __query_ytmusic(
             "cover",
             "festival",
             "amv",
-            "male",
-            "female",
+            "male version",
+            "female version",
             "switching vocals",
         ]:
             # !word in title but not in song_name -> its an unnecessary result
@@ -108,11 +105,9 @@ def __query_ytmusic(
         if skip_result:
             continue
 
-        res_name = result["title"]
-
         simplified_results.append(
             {
-                "name": res_name,
+                "name": result["title"],
                 "artists": res_artists,
                 "album": res_album,
                 "duration": res_duration,

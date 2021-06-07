@@ -1,4 +1,4 @@
-<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
 - [Functions](#functions)
   - [__query_ytmusic](#__query_ytmusic)
@@ -8,7 +8,7 @@
 
 <!-- mdformat-toc end -->
 
-# Functions<a name="functions"></a>
+## Functions<a name="functions"></a>
 
 ### \_\_query_ytmusic<a name="__query_ytmusic"></a>
 

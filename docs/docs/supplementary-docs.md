@@ -43,8 +43,8 @@ figure out *what is actually happening*.
   blocks and all loops are represented its enough.
 
 - The diagrams for are to be grouped under the same location as the source file but under
-  the `./docs/flows` folder. (eg. control flow diagrams for `./spotDL/defaults/search.py`
-  will go under `.docs/flows/defaults/search.md`)
+  the `./docs/models/flow` folder. (eg. control flow diagrams for
+  `./spotDL/defaults/search.py` will go under `.docs/models/flows/defaults/search.md`)
 
 - Each control-flow file is to have 4 sections, unnecessary sections can be skipped:
 
@@ -136,4 +136,4 @@ figure out *what is actually happening*.
 
 - No particular format.
 
-- Refer to the [plugin system docs](../model/plugin-system.md) for an example.
+- Refer to the [plugin system docs](../models/.idea/plugin-system.md) for an example.
