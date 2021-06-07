@@ -1,6 +1,7 @@
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
 - [Functions](#functions)
+  - [get_youtube_link](#get_youtube_link)
   - [__query_ytmusic](#__query_ytmusic)
   - [__common_elm_fraction](#__common_elm_fraction)
   - [__prepare_word](#__prepare_word)
@@ -9,6 +10,10 @@
 <!-- mdformat-toc end -->
 
 ## Functions<a name="functions"></a>
+
+### get_youtube_link<a name="get_youtube_link"></a>
+
+![get_youtube_link control-flow](../../../../images/exports/models/flow/defaults/search/ytm/get_youtube_link.svg)
 
 ### \_\_query_ytmusic<a name="__query_ytmusic"></a>
 
