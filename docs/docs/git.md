@@ -37,25 +37,25 @@
 
    - Small commits (consisting of a single logical change) are easier to review as the
      reviewer doesn't have to filter out the different "change-sets" in their minds,
-     he/she can just plunge straight in and give straightforward un-muddled feedback on
+     he/she can just plunge straight in and give straightforward, un-muddled feedback on
      your commit.
 
    - Sometimes changes require "context". For example, a bug fix and tests for the bug fix
-     code. The tests would require context of the bug fix code to be understood. In such a
-     case splitting commits requires reviewers to "keep in mind" the context of a
+     code. The tests would require the context of the bug fix code to be understood. In such a
+     case, splitting commits requires reviewers to "keep in mind" the context of a
      different commit while reviewing the new one, it's much simpler to just package both
      the changes together so that the context is retained.
 
    - Yes, often times, a bug fix is iterated upon over the course of a PR, so you'd have
      the bug fix commit followed by a half dozen "improved bug fix" commits. In a way,
-     "improving the buf fix code" is a single logical step in itself so thats totally
+     "improving the bug fix code" is a single logical step in itself, so thats totally
      cool.
 
 2. __Good commit messages:__
 
    - Lets say you track down the source of a bug to a conditional:
-     `if req_data.strip() != '':` but your not sure why the conditional was introduce - it
-     was introduced with a reason after all, so you search the files git history till you
+     `if req_data.strip() != '':` but your not sure why the conditional was introduced - it
+     was introduced with a reason after all, so you search the file's git history till you
      locate this:
 
    ```diff
@@ -65,8 +65,8 @@
 
    and a commit message that reads: "modifies checks for data availability". Wow!
    Congratulations, you just discovered what you already know. You could comment out the
-   reasons for change within your code but that would lead to too much bloat - the git
-   history of a file serves the purpose far better provided its combined with good clear
+   reasons for change within your code, but that would lead to too much bloat - the git
+   history of a file serves the purpose far better - provided it's combined with good clear
    commits and commit messages.
 
 ### Bright-lines - a simple yes/no process<a name="bright-lines---a-simple-yesno-process"></a>
@@ -133,7 +133,7 @@
 
 ### How to create a good git history?<a name="how-to-create-a-good-git-history"></a>
 
-1. __Merge relevant commits:__ When you have a series of commits that "tweak" an a prior
+1. __Merge relevant commits:__ When you have a series of commits that "tweaks" on a prior
    commit, merge them together so as to avoid unnecessary intermediate "out-of-context"
    changes. Do so only if the resultant commit constitutes a SINGLE logical change.
 
@@ -191,9 +191,9 @@ what you find:
 
 Lets say that each commit message meticulously explains why the changes were made and how
 they work - would it be easy to understand why `if not required_data << 126 = 12:` was
-needed? Probably not. ITs not hard because it wasn't explained, it's hard because its
+needed? Probably not. It's not hard because it wasn't explained, it's hard because it's
 split up and the context that was available to the coder and reviewers when the code was
-being written is not available to you. Its a mess. Something like the following squashed
+being written is not available to you. It's a mess. Something like the following squashed
 commit would be a lot more easier to understand:
 
 - Merged Commit:
@@ -266,4 +266,4 @@ branch and a new separate branch.
 
    ![reconstruct your git history](../images/exports/docs/git/reconstruct-your-git-history.jpg)
 
-6. Switch out the original brach and the reconstructed branch in your PR
+6. Switch out the original branch and the reconstructed branch in your PR
