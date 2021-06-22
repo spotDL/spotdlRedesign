@@ -17,10 +17,10 @@
 
 - Focused Functionality:
 
-  - spotDL is to download "content" from Spotify. Does this help doing that? (very narrow
+  - spotDL is used to download "content" from Spotify. Does this help in doing that? (very narrow
     focus here people) A.K.A - is this a "need to have"?
 
-  - if its a "nice to have", will most of the users use it? (note: its "most users
+  - If it's a "nice to have", will most of the users use it? (note: it's "most users
     **use**", not "most users **want**")
 
 - Users first, provided its maintainable:
@@ -29,13 +29,13 @@
     make things more complex (more understanding of spotdl required to use it) but will it
     benefit the majority (~80%+) of them in the process?
 
-  - Provided it helps the users, if it has a big impact on maintainability, its still a
+  - Provided it helps the users, if it has a big impact on maintainability, it's still a
     no-no.
 
 If a contribution satisfies at least 2 of our deciding values it gets accepted, else, it
 doesn't.
 
-## A few general notes<a name="a-few-general-notes"></a>
+## General Notes<a name="general-notes"></a>
 
 1. The term 'users' is thrown around a lot. For a project like `FFmpeg`, users is that
    group of coders who are unafraid of a command-prompt (it says so on the downloads page
@@ -49,9 +49,9 @@ doesn't.
    - Industry standard maintainability measures (the same one outlined on betterCodeHub)
 
 3. The ideas outlined here are still very much a work in progress and is open to
-   discussion but, we will stick to these. Some of the biggest companies & many more
+   discussion, but we will stick to these. Some of the biggest companies & many more
    ambitious projects has all fallen to ruin because of the 'undisciplined pursuit of
    more'. That should not happen here. This is not so much of an outline of what we should
-   do but, an outline of what '**we should not do**'.
+   do, rather an outline of what '**we should not do**'.
 
 4. You're encouraged to question each contribution/existing functionality as required.
