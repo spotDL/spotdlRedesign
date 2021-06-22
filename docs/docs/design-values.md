@@ -3,7 +3,7 @@
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
 - [The Deciding Factors (our design values)](#the-deciding-factors-our-design-values)
-- [A few general notes](#a-few-general-notes)
+- [General Notes](#general-notes)
 
 <!-- mdformat-toc end -->
 
