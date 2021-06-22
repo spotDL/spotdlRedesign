@@ -13,7 +13,7 @@
 
 1. 100% [CommonMark](https://spec.commonmark.org/current/) compliance
 
-2. continuous numbered ordered list markers (use `1.`, `2.`, `3.`... instead of `1.`,
+2. Continuous numbered ordered list markers (use `1.`, `2.`, `3.`... instead of `1.`,
    `1.`, `1.`... for ordered lists)
 
 3. Wrap lines at 100 characters
@@ -22,13 +22,13 @@
 
 5. Table of contents is the start of every file
 
-6. html based heading links. eg. `## Markdown Styling<a name="markdown-styling"></a>`
+6. HTML based heading links. eg. `## Markdown Styling<a name="markdown-styling"></a>`
 
 ## Suggested tooling<a name="suggested-tooling"></a>
 
 ### Formatting<a name="formatting"></a>
 
-Use `mdformat-gfm`, a plugins for `mdformat` built for github flavoured markdown
+Use `mdformat-gfm`, a plugin for `mdformat` built for github flavoured markdown
 
 - `$ pip install mdformat-gfm`
 
