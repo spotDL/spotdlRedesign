@@ -11,7 +11,7 @@
 
 This project's documentation can broadly be divided into 4 categories:
 
-1. contributing guidelines (like this document)
+1. Contributing guidelines (like this document)
 
 2. Code API documentation (what you traditionally call "docs")
 
@@ -22,12 +22,12 @@ This project's documentation can broadly be divided into 4 categories:
 The last two types of documentation is what we shall call "supplementary documentation".
 Why do we need them? Because ***understanding good code is harder than writing good
 code*** any day. Ever faced a situation where you're reading through a function for the
-100th time but can't understand what the heck is happening? or you've somehow figured out
+100th time but can't understand what the heck is happening? Or, you've somehow figured out
 how each function works and what each class does but just can't seem to piece together how
 everything fits together because things "just don't seem to make any sense" and your
 wondering "how is this even related to that"? I've been there often & that's what
 supplementary docs help out with - they outline a broad overview of how things work so you
-have an idea of *whats supposed to be happening* making it a million times easier to
+have an idea of *whats supposed to be happening*, making it a million times easier to
 figure out *what is actually happening*.
 
 ## What do they contain?<a name="what-do-they-contain"></a>
@@ -42,7 +42,7 @@ figure out *what is actually happening*.
 - This isn't exactly a full-detail flowchart, just an overview, as long all if-else logic
   blocks and all loops are represented its enough.
 
-- The diagrams for are to be grouped under the same location as the source file but under
+- The diagrams are to be grouped under the same location as the source file but under
   the `./docs/models/flow` folder. (eg. control flow diagrams for
   `./spotDL/defaults/search.py` will go under `.docs/models/flows/defaults/search.md`)
 
@@ -62,7 +62,7 @@ figure out *what is actually happening*.
 
       `### $class_name`
 
-    - an unordered list of all (public & private) class functions:
+    - An unordered list of all (public & private) class functions:
 
       ```markdown
       #### $class_name.$function_name (type if any)
@@ -77,7 +77,7 @@ figure out *what is actually happening*.
 
       `## Functions`
 
-    - an unordered list of all (public & private) class functions, specify generator if
+    - An unordered list of all (public & private) class functions, specify generator if
       required:
 
       ```markdown
