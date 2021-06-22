@@ -24,8 +24,8 @@
 ### 1. Ease of plugin creation<a name="1-ease-of-plugin-creation"></a>
 
 Simply put, if you have to work your way through two dozen errors before you can nail down
-your plugin, your not very likely to put in all that much effort into writing plugins
-whereas, if you get it correct after just half a dozen bug-fixes, your more likely to
+your plugin, you're not very likely to put in all that much effort into writing plugins,
+whereas if you get it correct after just half a dozen bug-fixes, you're more likely to
 write up plugins. As far as I am concerned, a plugin system with very few plugins is
 pretty useless.
 
@@ -135,13 +135,13 @@ process if its steps are self-contained and have a specific pre-determined order
   Consider a code editor with plugin support, there are multiple things happening
   simultaneously:
 
-  - The editor is "reading" you keystrokes and displaying text on screen
+  - The editor is "reading" your keystrokes and displaying text on screen
 
   - A plugin is highlighting the code based on what language your using
 
   - Another plugin is providing auto-complete suggestions as you type
 
-  - Another plugin is checking your spellings in live time.
+  - Another plugin is checking your spellings in real time.
 
   All of this is happening at once, simultaneously, in parallel - a "parallel process".
 
@@ -159,14 +159,14 @@ process if its steps are self-contained and have a specific pre-determined order
 
   5. You write your third draft
 
-  6. repeat
+  6. Repeat
 
-  Its a back-and-forth loop between you and your editor/proof-reader - a "looping
+  It's a back-and-forth loop between you and your editor/proof-reader - a "looping
   process".
 
 ### So, what exactly is a plugin now?<a name="so-what-exactly-is-a-plugin-now"></a>
 
-From here on out, a plugin will refer to a single step or group of steps "inserted" into
+From here on out, a plugin will refer to a single step or a group of steps "inserted" into
 the main process at hand.
 
 For example, adding a "heat the milk" step (it's a self-contained step) before you mix in
