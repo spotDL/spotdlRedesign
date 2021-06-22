@@ -57,7 +57,7 @@ The docstring is composed of 5 distinct sections of which 2 are optional:
 
 - __Args__:
 
-  - Non optional
+  - Non-optional
 
   - Each input to be formatted as an unordered list:
 
@@ -69,7 +69,7 @@ The docstring is composed of 5 distinct sections of which 2 are optional:
 
 - __Returns__:
 
-  - Non optional
+  - Non-optional
 
   - If only a single return type:
 
@@ -87,7 +87,7 @@ The docstring is composed of 5 distinct sections of which 2 are optional:
 
 - __Errors raised__:
 
-  - Non optional
+  - Non-optional
 
   - If any custom exceptions are raised or any known errors are left unhandled within the
     function, they must be noted:
@@ -102,15 +102,15 @@ The docstring is composed of 5 distinct sections of which 2 are optional:
 
   - Optional, needed only if:
 
-    - there is a need to expand on the purpose and functioning of the function
+    - There is a need to expand on the purpose and functioning of the function
 
-    - there are unique design choices to be documented
+    - There are unique design choices to be documented
 
-    - there are special behaviors to look out for
+    - There are special behaviors to look out for
 
-    - there is anything you the author, intend to convey to the user / other devs
+    - There is anything you the author, intend to convey to the user / other devs
 
-    - any variables or random, out-of-the blue formulas that need a little context
+    - Any variables or random, out-of-the blue formulas that need a little context
 
   - No specific format, omit this section if not required
 
@@ -123,8 +123,8 @@ The docstring is composed of 5 distinct sections of which 2 are optional:
 - __Notes__:
 
   - Feel free to use markdown formatting, use double-stars for bold and
-    single-star/single_underscore for italics, code API documentations is auto-generated
-    from these doc strings using pdoc3 and pdoc3's markdown parser does not accept
+    single-star/single_underscore for italics, code API documentations are auto-generated
+    from these doc strings using pdoc3. NOTE: pdoc3's markdown parser does not accept
     double-underscore for bold (i.e `__this will be in bold__` -> \_\_this will be in
     bold\_\_)
 
