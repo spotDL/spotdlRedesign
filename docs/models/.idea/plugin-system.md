@@ -41,7 +41,7 @@ reduce the effort and errors you will probably need to fix:
    plugin-author to start worrying about how things could possibly pan out and write
    exhaustive use-cases.
 
-1. The extent of "structure imposed on the plugin-code" - the more you need to shoehorn
+2. The extent of "structure imposed on the plugin-code" - the more you need to shoehorn
    code into some pre-determined structure, the more tedious the whole job becomes. It's
    that simple.
 
@@ -72,16 +72,16 @@ Consider the steps to making a coffee:
 
 1. You get a filter
 
-1. You add coffee powder
+2. You add coffee powder
 
-1. You heat water
+3. You heat water
 
-1. You add hot water to the filter, let it percolate through the coffee powder to obtain
+4. You add hot water to the filter, let it percolate through the coffee powder to obtain
    decoction
 
-1. You get milk
+5. You get milk
 
-1. You add decoction and sugar to the milk to get coffee
+6. You add decoction and sugar to the milk to get coffee
 
 Note that each step is self contained, i.e. doesn't effect the other steps - weather I use
 hot milk or cold milk, I'll still end up with coffee. Note also that the order is pretty
@@ -98,27 +98,27 @@ process if its steps are self-contained and have a specific pre-determined order
 
   1. Have a customer browse our catalog
 
-  1. Have him/her/them choose a book
+  2. Have him/her/them choose a book
 
-  1. Ask them what edition they would like - digital or hard-copy?
+  3. Ask them what edition they would like - digital or hard-copy?
 
-  1. If digital:
+  4. If digital:
 
      1. Obtain a payment
 
-     1. Transfer a copy of of the book to their kindle account
+     2. Transfer a copy of of the book to their kindle account
 
-  1. If hard-copy:
+  5. If hard-copy:
 
      1. Notify the seller
 
-     1. Have the book packed
+     2. Have the book packed
 
-     1. Have the packed book picked up and transported to the customer
+     3. Have the packed book picked up and transported to the customer
 
-     1. Have the book delivered
+     4. Have the book delivered
 
-     1. Obtain a payment
+     5. Obtain a payment
 
   You see, the process splits into 2 different sets of (still) "self-contained" and
   "definitely-ordered" sequence of steps once the customer chooses weather he/she/they
@@ -151,15 +151,15 @@ process if its steps are self-contained and have a specific pre-determined order
 
   1. You write your first draft
 
-  1. You pass it on to your editor/proof-reader for comments
+  2. You pass it on to your editor/proof-reader for comments
 
-  1. You write your next draft
+  3. You write your next draft
 
-  1. You pass it on to your editor/proof-reader for comments
+  4. You pass it on to your editor/proof-reader for comments
 
-  1. You write your third draft
+  5. You write your third draft
 
-  1. Repeat
+  6. Repeat
 
   It's a back-and-forth loop between you and your editor/proof-reader - a "looping
   process".
@@ -231,7 +231,7 @@ onto the plugin-code being written.
 
    ![ordering of plugin-steps](../../images/exports/models/.idea/plugin-system/order-steps.svg)
 
-1. The pluginManager serially executes the `RUN(commonStorage)` entry-point for each step
+2. The pluginManager serially executes the `RUN(commonStorage)` entry-point for each step
    of the final process (i.e. main+plugin steps)
 
    ![serial execution of ](../../images/exports/models/.idea/plugin-system/execution-commonStorage.svg)

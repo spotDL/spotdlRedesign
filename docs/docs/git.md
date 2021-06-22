@@ -24,10 +24,10 @@
 1. __Granularity:__ Have each commit create a single "logical change". For example, if a
    commit (a) fixes a bug and (b) implements a feature request, it should be split.
 
-1. __Cohesiveness:__ Keep "tightly coupled" logical changes together. A bug fix and its
+2. __Cohesiveness:__ Keep "tightly coupled" logical changes together. A bug fix and its
    tests shouldn't be split.
 
-1. __Good commit messages:__ A good commit message has 2 components (a) A descriptive
+3. __Good commit messages:__ A good commit message has 2 components (a) A descriptive
    Heading and (b) a body that expands on "why changes" and "how changes address the
    issue".
 
@@ -41,8 +41,8 @@
      your commit.
 
    - Sometimes changes require "context". For example, a bug fix and tests for the bug fix
-     code. The tests would require the context of the bug fix code to be understood. In such a
-     case, splitting commits requires reviewers to "keep in mind" the context of a
+     code. The tests would require the context of the bug fix code to be understood. In
+     such a case, splitting commits requires reviewers to "keep in mind" the context of a
      different commit while reviewing the new one, it's much simpler to just package both
      the changes together so that the context is retained.
 
@@ -51,12 +51,12 @@
      "improving the bug fix code" is a single logical step in itself, so thats totally
      cool.
 
-1. __Good commit messages:__
+2. __Good commit messages:__
 
    - Lets say you track down the source of a bug to a conditional:
-     `if req_data.strip() != '':` but your not sure why the conditional was introduced - it
-     was introduced with a reason after all, so you search the file's git history till you
-     locate this:
+     `if req_data.strip() != '':` but your not sure why the conditional was introduced -
+     it was introduced with a reason after all, so you search the file's git history till
+     you locate this:
 
    ```diff
    - if req_data == ' ':
@@ -66,8 +66,8 @@
    and a commit message that reads: "modifies checks for data availability". Wow!
    Congratulations, you just discovered what you already know. You could comment out the
    reasons for change within your code, but that would lead to too much bloat - the git
-   history of a file serves the purpose far better - provided it's combined with good clear
-   commits and commit messages.
+   history of a file serves the purpose far better - provided it's combined with good
+   clear commits and commit messages.
 
 ### Bright-lines - a simple yes/no process<a name="bright-lines---a-simple-yesno-process"></a>
 
@@ -75,7 +75,7 @@
 
    ![good commit info-graphic](../images/exports/docs/git/git-good-commits.svg)
 
-1. __Good commit messages:__
+2. __Good commit messages:__
 
    ![good commit message info-graphic](../images/exports/docs/git/git-good-commit-messages.svg)
 
@@ -137,7 +137,7 @@
    commit, merge them together so as to avoid unnecessary intermediate "out-of-context"
    changes. Do so only if the resultant commit constitutes a SINGLE logical change.
 
-1. __Group related changes:__ When you have a series of related changes that qualify as
+2. __Group related changes:__ When you have a series of related changes that qualify as
    different distinct changes, reorder your commits to create a clearer
    (retrospect-enhanced) git history.
 
@@ -249,21 +249,21 @@ branch and a new separate branch.
 
 1. Work on your PR as usual. Once complete, proceed to the following steps
 
-1. Go through your history and identify what you want to keep, drop and squash
+2. Go through your history and identify what you want to keep, drop and squash
 
    ![going through git history](../images/exports/docs/git/going-through-history.jpg)
 
-1. Checkout the respective commits and copy the changes you want into a separate folder
+3. Checkout the respective commits and copy the changes you want into a separate folder
    outside of the repo
 
    ![extracting changes to a separate folder](../images/exports/docs/git/extracting-changes.jpg)
 
-1. Create a new branch
+4. Create a new branch
 
    ![creating a new branch](../images/exports/docs/git/creating-a-new-branch.jpg)
 
-1. Copy in your changes, commit them to construct a good git history
+5. Copy in your changes, commit them to construct a good git history
 
    ![reconstruct your git history](../images/exports/docs/git/reconstruct-your-git-history.jpg)
 
-1. Switch out the original branch and the reconstructed branch in your PR
+6. Switch out the original branch and the reconstructed branch in your PR

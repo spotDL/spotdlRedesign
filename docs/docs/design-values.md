@@ -17,8 +17,8 @@
 
 - Focused Functionality:
 
-  - spotDL is used to download "content" from Spotify. Does this help in doing that? (very narrow
-    focus here people) A.K.A - is this a "need to have"?
+  - spotDL is used to download "content" from Spotify. Does this help in doing that? (very
+    narrow focus here people) A.K.A - is this a "need to have"?
 
   - If it's a "nice to have", will most of the users use it? (note: it's "most users
     **use**", not "most users **want**")
@@ -42,16 +42,16 @@ doesn't.
    itself). Here, '***users***' refers not to developers but normal *homo sapiens* - just
    about anybody who wants to download "content" from Spotify.
 
-1. The term 'maintainability' has also been given significant weight. This is used in 2
+2. The term 'maintainability' has also been given significant weight. This is used in 2
    senses of the word:
 
    - General Simplicity - Can I read the code \***once** and understand what is going on?
    - Industry standard maintainability measures (the same one outlined on betterCodeHub)
 
-1. The ideas outlined here are still very much a work in progress and is open to
+3. The ideas outlined here are still very much a work in progress and is open to
    discussion, but we will stick to these. Some of the biggest companies & many more
    ambitious projects has all fallen to ruin because of the 'undisciplined pursuit of
    more'. That should not happen here. This is not so much of an outline of what we should
    do, rather an outline of what '**we should not do**'.
 
-1. You're encouraged to question each contribution/existing functionality as required.
+4. You're encouraged to question each contribution/existing functionality as required.

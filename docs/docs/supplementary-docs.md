@@ -13,11 +13,11 @@ This project's documentation can broadly be divided into 4 categories:
 
 1. Contributing guidelines (like this document)
 
-1. Code API documentation (what you traditionally call "docs")
+2. Code API documentation (what you traditionally call "docs")
 
-1. Control flow documentation (a super-helpful convenience)
+3. Control flow documentation (a super-helpful convenience)
 
-1. System/Idea documentation (a necessity for development/maintenance)
+4. System/Idea documentation (a necessity for development/maintenance)
 
 The last two types of documentation is what we shall call "supplementary documentation".
 Why do we need them? Because ***understanding good code is harder than writing good
@@ -42,8 +42,8 @@ figure out *what is actually happening*.
 - This isn't exactly a full-detail flowchart, just an overview, as long all if-else logic
   blocks and all loops are represented its enough.
 
-- The diagrams are to be grouped under the same location as the source file but under
-  the `./docs/models/flow` folder. (eg. control flow diagrams for
+- The diagrams are to be grouped under the same location as the source file but under the
+  `./docs/models/flow` folder. (eg. control flow diagrams for
   `./spotDL/defaults/search.py` will go under `.docs/models/flows/defaults/search.md`)
 
 - Each control-flow file is to have 4 sections, unnecessary sections can be skipped:

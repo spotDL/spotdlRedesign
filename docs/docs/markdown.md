@@ -13,16 +13,16 @@
 
 1. 100% [CommonMark](https://spec.commonmark.org/current/) compliance
 
-1. Continuous numbered ordered list markers (use `1.`, `2.`, `3.`... instead of `1.`,
+2. Continuous numbered ordered list markers (use `1.`, `2.`, `3.`... instead of `1.`,
    `1.`, `1.`... for ordered lists)
 
-1. Wrap lines at 100 characters
+3. Wrap lines at 100 characters
 
-1. Loose lists, i.e each list item is preceded and followed by an empty line
+4. Loose lists, i.e each list item is preceded and followed by an empty line
 
-1. Table of contents is the start of every file
+5. Table of contents is the start of every file
 
-1. HTML based heading links. eg. `## Markdown Styling<a name="markdown-styling"></a>`
+6. HTML based heading links. eg. `## Markdown Styling<a name="markdown-styling"></a>`
 
 ## Suggested tooling<a name="suggested-tooling"></a>
 

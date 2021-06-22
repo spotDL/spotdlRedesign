@@ -15,14 +15,14 @@
 
 1. `mypy` compliance
 
-1. `pylint` score of 9+
+2. `pylint` score of 9+
 
-1. [McCabe complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) \< 10 without
+3. [McCabe complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) \< 10 without
    exception
 
-1. `black` formatted code
+4. `black` formatted code
 
-1. Docstring's on every method, class and module (using
+5. Docstring's on every method, class and module (using
    [this format](#docstring-formatting))
 
 ## Suggested Tooling<a name="suggested-tooling"></a>
@@ -31,19 +31,19 @@
 
    - `$ mypy ./source`
 
-1. McCabe complexity:
+2. McCabe complexity:
 
    - `pylint --load-plugins=pylint.extensions.mccabe --limit-inference-results 0 --disable all --enable too-complex`
 
-1. pylint:
+3. pylint:
 
    - `$ pylint --limit-inference-results 0 --fail-under 9 ./source`
 
-1. Docstring's:
+4. Docstring's:
 
    - `$ pylint --disable all --limit-inference-results 0 --enable missing-docstring empty-docstring ./source`
 
-1. black:
+5. black:
 
    - Checking: `$ black --check ./source`
 
