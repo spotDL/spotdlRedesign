@@ -2,10 +2,10 @@
 
 - [Functions](#functions)
   - [get_youtube_link](#get_youtube_link)
-  - [__query_ytmusic](#__query_ytmusic)
-  - [__common_elm_fraction](#__common_elm_fraction)
-  - [__prepare_word](#__prepare_word)
-  - [__is_similar](#__is_similar)
+  - [\_\_query_ytmusic](#__query_ytmusic)
+  - [\_\_common_elm_fraction](#__common_elm_fraction)
+  - [\_\_prepare_word](#__prepare_word)
+  - [\_\_is_similar](#__is_similar)
 
 <!-- mdformat-toc end -->
 
