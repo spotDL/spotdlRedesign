@@ -5,19 +5,17 @@ Tools to search Spotify for a Song match from available data.
 # ===============
 # === Imports ===
 # ===============
-import asyncio
-import typing
+from typing import Union, Generator
+from spotipy.oauth2 import SpotifyClientCredentials
+
 import spotipy
 
-from spotipy.oauth2 import SpotifyClientCredentials
-from typing import Union, Generator
-
-client_id = "b7f76c8bc8a24622943cb669bde63bb4"
-client_secret = "c391f5ff3f87401a96dfecb462b0684e"
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id, client_secret))
+CLIENT_ID = "b7f76c8bc8a24622943cb669bde63bb4"
+CLIENT_SECRET = "c391f5ff3f87401a96dfecb462b0684e"
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(CLIENT_ID, CLIENT_SECRET))
 
 
-def get_track(song_name: Union[str, list], search_results: int = 5) -> dict:
+def get_track(song_name: str, search_results: int = 5) -> dict:
     result = sp.search(q=song_name, limit=search_results, type='track')
     # This code fixes some song searches
     track = None
@@ -66,8 +64,8 @@ def __track_to_metadata(track, album=None):
 
 
 def __generator_loader(item, number_of_generators: int = 0, isalbum=False):
-    # if number_of_generators is 0 or is invalid (eg. number_of_generators is 5 but amount of tracks is 23 (would be
-    # uneven and hard to handle, however this could probably be added with a plugin))
+    # if number_of_generators is 0 or is invalid (eg. number_of_generators is 5 but amount of tracks
+    # is 23 (would be uneven and hard to handle, however this could probably be added with a plugin)
     items = item['items']
     if number_of_generators == 0 or len(items) % number_of_generators == 0:
         number_of_generators = 10
@@ -79,9 +77,9 @@ def __generator_loader(item, number_of_generators: int = 0, isalbum=False):
     generators = []
     for section in range(sections, len(items) + sections, sections):
         if isalbum:
-            generators.append(__get_playlist_generator(items[previous:previous + sections], album=isalbum))
+            generators.append(__get_playlist_generator(items[previous:section], album=isalbum))
         else:
-            generators.append(__get_playlist_generator(items[previous:previous + sections]))
+            generators.append(__get_playlist_generator(items[previous:section]))
         previous += sections
     return generators
 
