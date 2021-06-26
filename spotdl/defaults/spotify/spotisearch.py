@@ -58,8 +58,13 @@ def get_playlist(playlist_id: str, number_of_generators: int = 0) -> list:
     ### Notes
     - This function only has support for playlists with under 100 tracks (will be increased)
     """
-    # TODO: Add support for playlists with over 100 tracks (10k limit)
     playlist = sp.playlist_items(playlist_id, limit=100)
+    offset = 0
+    while playlist['next'] is not None:
+        offset += 100
+        next_request = sp.playlist_items(playlist_id, limit=100, offset=offset)
+        playlist['items'] += next_request['items']
+        playlist['next'] = next_request['next']
     return __generator_loader(playlist, number_of_generators)
 
 
@@ -77,8 +82,13 @@ def get_album(album_id: str, number_of_generators: int = 0) -> list:
     ### Notes
     - This function only has support for albums with under 50 tracks (will be increased)
     """
-    # TODO: Add support for albums with over 50 tracks (10k limit)
     album = sp.album(album_id)
+    offset = 0
+    while album['tracks']['next'] is not None:
+        offset += 50
+        next_request = sp.album_tracks(album_id, offset=offset)
+        album['tracks']['items'] += next_request['items']
+        album['tracks']['next'] = next_request['next']
     return __generator_loader(album["tracks"], number_of_generators, isalbum=album)
 
 
@@ -129,6 +139,19 @@ def __generator_loader(item, number_of_generators: int = 0, isalbum=False):
 
 
 async def __convert_to_async(generator: Generator):
+    """
+    ### Args
+    - generator: `Generator`, Generator to turn async
+
+    ### Returns
+    - `Generator`, async Generator
+
+    ### Errors raised
+    - None
+
+    ### Notes
+    - None
+    """
     for each in generator:
         yield each
 
