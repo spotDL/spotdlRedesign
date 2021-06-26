@@ -6,6 +6,9 @@ __pycache__/
 # IDEA
 .idea/
 
+# Cache
+.cache
+
 # VSCode
 .vscode/
 

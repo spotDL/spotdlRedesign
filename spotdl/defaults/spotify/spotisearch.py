@@ -1,3 +1,5 @@
+# pylint: disable=W0511
+
 """
 Tools to search Spotify for a Song match from available data.
 """
@@ -5,7 +7,7 @@ Tools to search Spotify for a Song match from available data.
 # ===============
 # === Imports ===
 # ===============
-from typing import Union, Generator
+from typing import Generator
 from spotipy.oauth2 import SpotifyClientCredentials
 
 import spotipy
@@ -15,58 +17,98 @@ CLIENT_SECRET = "c391f5ff3f87401a96dfecb462b0684e"
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(CLIENT_ID, CLIENT_SECRET))
 
 
-def get_track(song_name: str, search_results: int = 5) -> dict:
-    result = sp.search(q=song_name, limit=search_results, type='track')
+def get_track(song_name: str) -> dict:
+    """
+    ### Args
+    - song_name: `str`, name of the song to be found
+
+    ### Returns
+    - `dict`, metadata of the song found from song_name
+
+    ### Errors raised
+    - None
+
+    ### Notes
+    - This function may not return the correct song all the time because spotify automatically
+    filters search results by popularity, meaning uncommon songs are more likely not to be found
+    """
+    result = sp.search(q=song_name, limit=5, type="track")
     # This code fixes some song searches
     track = None
-    for search in result['tracks']['items']:
-        if song_name.lower() in search['name'].lower():
+    for search in result["tracks"]["items"]:
+        if song_name.lower() in search["name"].lower():
             track = search
             break
     if track is None:
-        track = result['tracks']['items'][0]
+        track = result["tracks"]["items"][0]
     return __track_to_metadata(track)
 
 
 def get_playlist(playlist_id: str, number_of_generators: int = 0) -> list:
+    """
+    ### Args
+    - playlist_id: `str`, URL/URI/ID of the playlist to be found
+
+    ### Returns
+    - `list`, list of generators, which each return get_track metadata(s)
+
+    ### Errors raised
+    - None
+
+    ### Notes
+    - This function only has support for playlists with under 100 tracks (will be increased)
+    """
     # TODO: Add support for playlists with over 100 tracks (10k limit)
     playlist = sp.playlist_items(playlist_id, limit=100)
     return __generator_loader(playlist, number_of_generators)
 
 
 def get_album(album_id: str, number_of_generators: int = 0) -> list:
+    """
+    ### Args
+    - album_id: `str`, URL/URI/ID of the album to be found
+
+    ### Returns
+    - `list`, list of generators, which each return get_track metadata(s)
+
+    ### Errors raised
+    - None
+
+    ### Notes
+    - This function only has support for albums with under 50 tracks (will be increased)
+    """
     # TODO: Add support for albums with over 50 tracks (10k limit)
-    # album = sp.album_tracks(album_id, limit=50)
     album = sp.album(album_id)
-    return __generator_loader(album['tracks'], number_of_generators, isalbum=album)
+    return __generator_loader(album["tracks"], number_of_generators, isalbum=album)
 
 
 # ========================================================
 # === support / helper /background / private functions ===
 # ========================================================
 
+
 def __track_to_metadata(track, album=None):
     if album is None:
         album = sp.album(track["album"]["external_urls"]["spotify"])
     artist = sp.artist(track["artists"][0]["external_urls"]["spotify"])
     return {
-        'URL': track['external_urls']['spotify'],
-        'name': track["name"],
-        'artists': [artist["name"] for artist in track['artists']],
-        'genres': (album["genres"] + artist["genres"]),
-        'duration': track['duration_ms'],  # milliseconds
-        'dt_numbers': [track['disc_number'], track['track_number']],
-        'album_art': album['images'][0],
-        'album_name': album['name'],
-        'album_artists': [artist["name"] for artist in album['artists']],
-        'album_release': album['release_date']  # str
+        "URL": track["external_urls"]["spotify"],
+        "name": track["name"],
+        "artists": [artist["name"] for artist in track["artists"]],
+        "genres": (album["genres"] + artist["genres"]),
+        "duration": track["duration_ms"],  # milliseconds
+        "dt_numbers": [track["disc_number"], track["track_number"]],
+        "album_art": album["images"][0],
+        "album_name": album["name"],
+        "album_artists": [artist["name"] for artist in album["artists"]],
+        "album_release": album["release_date"],  # str
     }
 
 
 def __generator_loader(item, number_of_generators: int = 0, isalbum=False):
     # if number_of_generators is 0 or is invalid (eg. number_of_generators is 5 but amount of tracks
     # is 23 (would be uneven and hard to handle, however this could probably be added with a plugin)
-    items = item['items']
+    items = item["items"]
     if number_of_generators == 0 or len(items) % number_of_generators == 0:
         number_of_generators = 10
     if len(items) < 10:
@@ -77,7 +119,9 @@ def __generator_loader(item, number_of_generators: int = 0, isalbum=False):
     generators = []
     for section in range(sections, len(items) + sections, sections):
         if isalbum:
-            generators.append(__get_playlist_generator(items[previous:section], album=isalbum))
+            generators.append(
+                __get_playlist_generator(items[previous:section], album=isalbum)
+            )
         else:
             generators.append(__get_playlist_generator(items[previous:section]))
         previous += sections
@@ -96,8 +140,8 @@ def __get_playlist_generator(list_of_tracks: list, batch_size: int = 10, album=N
         if left > batch_size:
             iterations = batch_size
         for track in list_of_tracks:
-            if 'track' in track:
-                yield [__track_to_metadata(track['track']) for track in list_of_tracks]
+            if "track" in track:
+                yield [__track_to_metadata(track["track"]) for track in list_of_tracks]
             else:
                 yield [__track_to_metadata(track, album) for track in list_of_tracks]
         left -= iterations
