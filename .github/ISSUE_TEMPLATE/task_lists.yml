@@ -1,0 +1,42 @@
+name: Task Lists / To Do
+
+title: Change this title, poorly formatted issues will not be handled
+
+description: List out tasks/sub-tasks (or even single tasks) to be completed to implement a new feature. This is meant *only* for developers.
+
+labels: task(s)
+
+body:
+
+- type: textarea
+  attributes:
+    label: "Tasks:"
+    placeholder: |
+      List of sub-tasks as markdown checkboxes (or) a description of what is to be done if a 
+      single task. Will be rendered as markdown.
+
+      Example (multiple-tasks):
+      
+          ## UI
+          - [ ] **UI Scripting**: How to go about scripting the UI. New syntax? Existing syntax? 
+          (and other details)
+          - [ ] **UI Looks**: How should the UI look? Material design? Fluent design? Something 
+          altogether new? How "configurable" should it be?
+
+          ## Build-system
+          - [ ] **Supported OS's**: Which OS's will be supported? (Win, Linux, Max)
+          - [ ] **Build System**: Should we use existing build systems or create an brand-new one?
+          - [ ] **Configurability**: How configurable should the app-build system be? Should it 
+          even be configurable?
+      
+      Example (single task):
+
+          1. [cztomczak/cefpython](https://github.com/cztomczak/cefpython) doesn't have the most 
+          intuitive/direct "do this to get started" instructions. Neither does it straight-forward 
+          provide an overview of what it CEFPython is and how it works.
+
+          2. Since, Proton is built upon CEFPython, **both** of those would be helpful to new devs 
+          as they would aid in drastically cutting down on the "search StackOverflow - trial code" 
+          loop.
+  validations:
+    required: true
