@@ -1,36 +1,13 @@
-# Set the default behavior, in case people don't have core.autocrlf set.
-*          text=auto eol=lf
+# Let git decide line endingings automatically for all files not specifically specified below
+*           text=auto   eol=lf
 
-# Explicitly declare text files you want to always be normalized and converted
-# to native line endings on checkout.
-*.py       text diff=python
+# Documentation & related
+*.md        text
+*.svg       text
 
-# Documents
-*.md       text diff=markdown
+# Explicitly binary file that should not be meddled with
+*.jpg       binary
 
-# Graphics
-*.png      binary
-*.jpg      binary
-*.jpeg     binary
-*.gif      binary
-*.svg      text
-
-# Scripts
-*.bash     text eol=lf
-*.fish     text eol=lf
-*.sh       text eol=lf
-# These are explicitly windows files and should use crlf
-*.bat      text eol=crlf
-*.cmd      text eol=crlf
-
-# Serialisation
-*.json     text
-*.toml     text
-*.xml      text
-*.yaml     text
-*.yml      text
-
-# Exclude files from exporting
-.gitattributes export-ignore
-.gitignore     export-ignore
-.gitkeep       export-ignore
+# Explicitly windows files that should use CLRF
+*.bat       text        eol=clrf
+*.cmd       text        eol=clrf
