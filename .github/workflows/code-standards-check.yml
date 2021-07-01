@@ -23,7 +23,7 @@ jobs:
       
       - name: Run mdformat (github flavoured) check
         run: |
-          mdformat --check --number --wrap 90 ./docs
+          mdformat --check --number --wrap 90 .
       
       - name: Check for docstring's
         run: |

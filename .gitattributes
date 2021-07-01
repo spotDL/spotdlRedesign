@@ -1,0 +1,13 @@
+# Let git decide line endingings automatically for all files not specifically specified below
+*           text=auto   eol=lf
+
+# Documentation & related
+*.md        text
+*.svg       text
+
+# Explicitly binary file that should not be meddled with
+*.jpg       binary
+
+# Explicitly windows files that should use CLRF
+*.bat       text        eol=clrf
+*.cmd       text        eol=clrf
