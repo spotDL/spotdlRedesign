@@ -1,4 +1,5 @@
 # pylint: disable=W0511
+# pylint: disable=C0301
 
 """
 Tools to search Spotify for a Song match from available data.
@@ -7,7 +8,8 @@ Tools to search Spotify for a Song match from available data.
 # ===============
 # === Imports ===
 # ===============
-from typing import Generator
+from typing import Generator, Any, Optional, AsyncGenerator, List
+from itertools import islice
 from spotipy.oauth2 import SpotifyClientCredentials
 
 import spotipy
@@ -44,13 +46,13 @@ def get_track(song_name: str) -> dict:
     return __track_to_metadata(track)
 
 
-def get_playlist(playlist_id: str, number_of_generators: int = 0) -> list:
+def get_playlist(playlist_id: str, number_of_generators: int = 0) -> List[Generator]:
     """
     ### Args
     - playlist_id: `str`, URL/URI/ID of the playlist to be found
 
     ### Returns
-    - `list`, list of generators, which each return get_track metadata(s)
+    - `List[Generator]`, list of generators, which each return get_track metadata(s)
 
     ### Errors raised
     - None
@@ -59,12 +61,10 @@ def get_playlist(playlist_id: str, number_of_generators: int = 0) -> list:
     - This function only has support for playlists with under 100 tracks (will be increased)
     """
     playlist = sp.playlist_items(playlist_id, limit=100)
-    offset = 0
-    while playlist['next'] is not None:
-        offset += 100
-        next_request = sp.playlist_items(playlist_id, limit=100, offset=offset)
-        playlist['items'] += next_request['items']
-        playlist['next'] = next_request['next']
+    while playlist["next"]:
+        next_request = sp.next(playlist)
+        playlist["items"].extend(next_request["items"])
+        playlist["next"] = next_request["next"]
     return __generator_loader(playlist, number_of_generators)
 
 
@@ -83,13 +83,11 @@ def get_album(album_id: str, number_of_generators: int = 0) -> list:
     - This function only has support for albums with under 50 tracks (will be increased)
     """
     album = sp.album(album_id)
-    offset = 0
-    while album['tracks']['next'] is not None:
-        offset += 50
-        next_request = sp.album_tracks(album_id, offset=offset)
-        album['tracks']['items'] += next_request['items']
-        album['tracks']['next'] = next_request['next']
-    return __generator_loader(album["tracks"], number_of_generators, isalbum=album)
+    while album["tracks"]["next"]:
+        next_request = sp.next(album["tracks"])
+        album["tracks"]["items"].extend(next_request["items"])
+        album["tracks"]["next"] = next_request["next"]
+    return __generator_loader(album["tracks"], number_of_generators, album=album)
 
 
 # ========================================================
@@ -97,7 +95,21 @@ def get_album(album_id: str, number_of_generators: int = 0) -> list:
 # ========================================================
 
 
-def __track_to_metadata(track, album=None):
+def __track_to_metadata(track: dict, album: Optional[dict] = None) -> dict:
+    """
+    ### Args
+    - track: `dict`, Track data to be used to return metadata
+    - album: `Optional[Any]`, Album data to replace track album data (needed for get_album)
+
+    ### Returns
+    - `dict`, Metadata
+
+    ### Errors raised
+    - None
+
+    ### Notes
+    - None
+    """
     if album is None:
         album = sp.album(track["album"]["external_urls"]["spotify"])
     artist = sp.artist(track["artists"][0]["external_urls"]["spotify"])
@@ -115,36 +127,50 @@ def __track_to_metadata(track, album=None):
     }
 
 
-def __generator_loader(item, number_of_generators: int = 0, isalbum=False):
-    # if number_of_generators is 0 or is invalid (eg. number_of_generators is 5 but amount of tracks
-    # is 23 (would be uneven and hard to handle, however this could probably be added with a plugin)
+def __generator_loader(
+    item: dict, number_of_generators: int = 5, album: Optional[Any] = False
+) -> List[Generator]:
+    """
+    ### Args
+    - item: `dict`, List of tracks to get metadata from
+    - number_of_generators: `int`, Number of Generators to create, the number of tracks MUST
+    be divisible by the number of tracks or else it will be automatically set to 10
+    - album: `Optional[Any]`, Album data to replace track album data (needed for get_album)
+
+    ### Returns
+    - `List[Generator]`, list of Generators (__get_playlist_generator)
+
+    ### Errors raised
+    - None
+
+    ### Notes
+    - None
+    """
     items = item["items"]
-    if number_of_generators == 0 or len(items) % number_of_generators == 0:
-        number_of_generators = 10
+    if number_of_generators == 0 or len(items) % number_of_generators != 0:
+        number_of_generators = 5
     if len(items) < 10:
         number_of_generators = len(items)
+    # This changes the number_of_generators to the nearest divisible number
     sections = int(len(items) / number_of_generators)
-
-    previous = 0
-    generators = []
-    for section in range(sections, len(items) + sections, sections):
-        if isalbum:
-            generators.append(
-                __get_playlist_generator(items[previous:section], album=isalbum)
-            )
-        else:
-            generators.append(__get_playlist_generator(items[previous:section]))
-        previous += sections
-    return generators
+    return [
+        __get_playlist_generator(
+            items[previous:section], album=album if album else None
+        )
+        for section, previous in zip(
+            range(sections, len(items) + sections, sections),
+            range(0, len(items) + sections, sections),
+        )
+    ]
 
 
-async def __convert_to_async(generator: Generator):
+async def __convert_to_async(generator: Generator) -> AsyncGenerator:
     """
     ### Args
     - generator: `Generator`, Generator to turn async
 
     ### Returns
-    - `Generator`, async Generator
+    - `AsyncGenerator`, async Generator
 
     ### Errors raised
     - None
@@ -156,15 +182,30 @@ async def __convert_to_async(generator: Generator):
         yield each
 
 
-def __get_playlist_generator(list_of_tracks: list, batch_size: int = 10, album=None):
-    left = len(list_of_tracks)
-    while left > 0:
-        iterations = left
-        if left > batch_size:
-            iterations = batch_size
-        for track in list_of_tracks:
-            if "track" in track:
-                yield [__track_to_metadata(track["track"]) for track in list_of_tracks]
-            else:
-                yield [__track_to_metadata(track, album) for track in list_of_tracks]
-        left -= iterations
+def __get_playlist_generator(
+    list_of_tracks: List[dict], album: Optional[Any] = None, batch_size: int = 10
+) -> Generator:
+    """
+    ### Args
+    - list_of_tracks: `List[dict]`, List of tracks to get metadata from
+    - album: `Optional[Any]`, Album data to replace track album data (needed for get_album)
+    - batch_size: `int`, Batch return size of the generator
+
+    ### Returns
+    - `Generator`, Generator, which returns songs in batches of batch_size
+
+    ### Errors raised
+    - None
+
+    ### Notes
+    - None
+    """
+    iterations = iter(list_of_tracks)
+    for _ in range(0, len(list_of_tracks), batch_size):
+        yield [
+            __track_to_metadata(
+                track["track"] if "track" in track else track,
+                album if "track" in track else None,
+            )
+            for track in islice(iterations, batch_size)
+        ]
