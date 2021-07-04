@@ -39,7 +39,7 @@ jobs:
       
       - name: Run MyPy check
         run: |
-          mypy --ignore-missing-imports --follow-imports silent ./spotdl
+          mypy --ignore-missing-imports --follow-imports silent --install-types --non-interactive ./spotdl
       
       - name: Run Black check
         run: |
