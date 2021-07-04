@@ -57,9 +57,9 @@ def download_ffmpeg():
     link_to_use = sources[os_name][os_arch]
     if link_to_use is None:
         raise Exception(
-                        "Could not detect architecture or operating system. "
-                        "Please submit an issue on this project's GitHub page."
-                        )
+            "Could not detect architecture or operating system. "
+            "Please submit an issue on this project's GitHub page."
+        )
     current_dir = os.path.dirname(__file__)
     ffmpeg_data = requests.get(link_to_use, allow_redirects=True).content
 
