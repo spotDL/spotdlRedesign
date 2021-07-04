@@ -10,3 +10,4 @@ __pycache__/
 *.temp.*
 *.test.*
 *.misc.*
+spotdl/ffmpeg/bin/*

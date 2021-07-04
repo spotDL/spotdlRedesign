@@ -4,11 +4,11 @@
 
 import platform
 import os
+import shutil
 import re
 import zipfile
 import subprocess
 import requests
-
 
 def download_ffmpeg():
     """
@@ -21,70 +21,48 @@ def download_ffmpeg():
     ### Errors raised
     - None
     """
-    regex = r"ffmpeg.*.zip"
 
-    windows_url_64 = ("https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2021-06-30-12-38/" +
-    "ffmpeg-n4.4-78-g031c0cb0b4-win64-gpl-4.4.zip")
-    windows_url_32 = "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/win32-ia32.gz"
-    linux_url_amd64 = "https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz"
-    linux_url_arm64 = "https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-arm64-static.tar.xz"
-    linux_url_arm32 = "https://github.com/bravobit/FFmpeg-Android/raw/master/android-ffmpeg/src/main/assets/x86/ffmpeg"
-    linux_url_i686 = "https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-i686-static.tar.xz"
-    mac_url_64 = "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/darwin-x64.gz"
-    mac_url_32 = "https://lame.buanzo.org/ffmpeg-mac-2.2.2.zip"
-    mac_url_arm = "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/darwin-arm64.gz"
+    sources = {
+        # !I used platform.machine() to find these values.
+        # !The 32bit values & Darwin's are educated guesses, as I do not have any 32bit machines
+        # !Or any macOS devices.
+        "Windows": {
+            "AMD64":    "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/win32-x64",
+            "i686":     "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/win32-ia32",
+            "arm":      "PUT SOMETHING HERE!!!!"
+        },
+        "Linux": {
+            "x86_64":   "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/linux-x64",
+            "x86":      "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/linux-ia32",
+            "arm32":    "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/linux-arm",
+            "aarch64":  "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/linux-arm64"
+        },
+        "Darwin": {
+            "x86_64":   "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/darwin-x64",
+            "x86":      "https://lame.buanzo.org/ffmpeg-mac-2.2.2.zip",
+            "arm":      "https://github.com/eugeneware/ffmpeg-static/releases/download/b4.4/darwin-arm64"
+        }
+    }
 
-    # Check the OS and Architecture of the user, then use appropriate link.
-    # I am not sure if all of these cases are accurate, more testing is required.
-    if platform.architecture()[0] == "64bit":
-        if platform.system == "Windows":
-            to_use_url = windows_url_64
-        elif platform.system == "Linux":
-            # Since Desktop linux and Android both return "Linux", we need to do an additional check
-            if platform.uname().machine == "x86_64":
-                #Desktop Linux
-                to_use_url = linux_url_amd64
-            elif platform.uname().machine == "aarch64":
-                #Android
-                to_use_url = linux_url_arm64
-            else:
-                raise Exception("Could not detect architecture." +
-                " Please submit an issue on GitHub containing your system information.")
-        elif platform.system == "Darwin":
-            if platform.machine == "arm":
-                to_use_url = mac_url_arm
-            elif platform.machine == "x86_64":
-                to_use_url = mac_url_64
-            else:
-                raise Exception("Could not detect architecture." +
-                " Please submit an issue on GitHub containing your system information.")
-    elif platform.architecture()[0] == "32bit":
-        if platform.system == "Windows":
-            to_use_url = windows_url_32
-        elif platform.system == "Linux":
-            # Since Desktop linux and Android both return "Linux", we need to do an additional check.
-            # I don't know and I have no way of testing if this is accurate.
-            # These are just educated guesses.
-            if platform.uname().machine == "i386":
-                #Desktop Linux
-                to_use_url = linux_url_i686
-            elif platform.uname().machine == "x86":
-                #Android
-                raise Exception("Sorry, 32-bit android is not supported by FFmpeg.")
-            else:
-                raise Exception("Could not detect architecture." +
-                " Please submit an issue on GitHub containing your system information.")
-        elif platform.system == "Darwin":
-            to_use_url = mac_url_32
+    try:
+        link_to_use = sources[platform.system()][platform.machine()]
+    except:
+        # Should change this message once we know for sure the output of the previous command
+        # On any and all OS and Architectures listed.
+        raise Exception("Could not detect architecture or operating system. "
+                        "Please open an issue on the GitHub page of this project.")
+    current_dir = os.path.dirname(__file__)
+    ffmpeg_data = requests.get(link_to_use, allow_redirects=True).content
+    if link_to_use == sources["Darwin"]["x86"]:
+        print("")
+        # TODO make functionality for this case
+    elif platform.system() == "Windows":
+        open(f"{current_dir}\\ffmpeg\\bin\\ffmpeg.exe", "wb").write(ffmpeg_data)
+    else:
+        open(f"{current_dir}/ffmpeg/bin/ffmpeg", "wb").write(ffmpeg_data)
 
-    # TODO Create extract function for each architecture
-
-try:
-    # I cannot explain, this snippet of code is from Stack Overflow and I do not understand it.
-    devnull = open(os.devnull)
-    subprocess.Popen(["ffmpeg"], stdout=devnull, stderr=devnull).communicate()
-    print("Found ffmpeg in PATH!")
-except OSError as e:
-    if not os.path.isfile("./ffmpeg.exe"):
-        print("ffmpeg not found, downloading it...")
-        download_ffmpeg()
+if shutil.which("ffmpeg") is not None:
+    print("Found ffmpeg in path. No need to download!")
+else:
+    print("Could not find ffmpeg in the path. Downloading it, please be patient...")
+    download_ffmpeg()
