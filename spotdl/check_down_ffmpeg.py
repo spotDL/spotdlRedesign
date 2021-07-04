@@ -5,6 +5,8 @@
 import platform
 import os
 import shutil
+import stat
+from pathlib import Path
 import requests
 
 
@@ -24,14 +26,13 @@ def download_ffmpeg():
         # !I used platform.machine() to find these values.
         # !The 32bit values & Darwin's are educated guesses, as I do not have any 32bit machines
         # !Or any macOS devices.
-        "Windows": {
-            "AMD64": "https://github.com/eugeneware/"
+        "windows": {
+            "amd64": "https://github.com/eugeneware/"
             "ffmpeg-static/releases/download/b4.4/win32-x64",
             "i686": "https://github.com/eugeneware/"
             "ffmpeg-static/releases/download/b4.4/win32-ia32",
-            "arm": "PUT SOMETHING HERE!!!!",
         },
-        "Linux": {
+        "linux": {
             "x86_64": "https://github.com/eugeneware/"
             "ffmpeg-static/releases/download/b4.4/linux-x64",
             "x86": "https://github.com/eugeneware/"
@@ -41,7 +42,7 @@ def download_ffmpeg():
             "aarch64": "https://github.com/eugeneware/"
             "ffmpeg-static/releases/download/b4.4/linux-arm64",
         },
-        "Darwin": {
+        "darwin": {
             "x86_64": "https://github.com/eugeneware/"
             "ffmpeg-static/releases/download/b4.4/darwin-x64",
             "x86": "https://lame.buanzo.org/ffmpeg-mac-2.2.2.zip",
@@ -50,28 +51,36 @@ def download_ffmpeg():
         },
     }
 
-    try:
-        link_to_use = sources[platform.system()][platform.machine()]
-    except Exception as exc:
-        # Should change this message once we know for sure the output of the previous command
-        # On any and all OS and Architectures listed.
+    os_name = platform.system().lower()
+    os_arch = platform.machine().lower()
+
+    link_to_use = sources[os_name][os_arch]
+    if link_to_use is None:
         raise Exception(
-            "Could not detect architecture or operating system. "
-            "Please open an issue on the GitHub page of this project."
-        ) from exc
+                        "Could not detect architecture or operating system. "
+                        "Please submit an issue on this project's GitHub page."
+                        )
     current_dir = os.path.dirname(__file__)
     ffmpeg_data = requests.get(link_to_use, allow_redirects=True).content
-    if link_to_use == sources["Darwin"]["x86"]:
-        print("")
-        # TODO make functionality for this case
-    elif platform.system() == "Windows":
-        open(f"{current_dir}\\ffmpeg\\bin\\ffmpeg.exe", "wb").write(ffmpeg_data)
-    else:
-        open(f"{current_dir}/ffmpeg/bin/ffmpeg", "wb").write(ffmpeg_data)
+
+    ffmpeg_exec = Path(
+        f"{current_dir}/ffmpeg/bin/ffmpeg" + ".exe" if os_name == "windows" else ""
+    )
+    with open(ffmpeg_exec, "wb") as file:
+        file.write(ffmpeg_data)
+    if os_name in ["linux", "darwin"]:
+        ffmpeg_exec.chmod(ffmpeg_exec.stat().st_mode | stat.S_IEXEC)
 
 
-if shutil.which("ffmpeg") is not None:
-    print("Found ffmpeg in path. No need to download!")
-else:
-    print("Could not find ffmpeg in the path. Downloading it, please be patient...")
-    download_ffmpeg()
+def check_ffmpeg():
+    """
+    ### Args
+    - None
+
+    ### Returns
+    - True if FFmpeg is found on PATH
+
+    ### Errors raised
+    - False if FFmpeg is not found on PATH
+    """
+    return bool(shutil.which("ffmpeg") is not None)
