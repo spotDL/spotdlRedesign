@@ -66,7 +66,7 @@ def download_ffmpeg():
     current_dir = os.path.dirname(__file__)
     ffmpeg_data = requests.get(link_to_use, allow_redirects=True).content
 
-    # !create "ffmpeg.exe" on windows and "ffmpeg" on other platforms 
+    # !create "ffmpeg.exe" on windows and "ffmpeg" on other platforms
     ffmpeg_exec = Path(
         f"{current_dir}/defaults/misc/ffmpeg" + (".exe" if os_name == "windows" else "")
     )
