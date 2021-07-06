@@ -7,6 +7,8 @@ import os
 import shutil
 import stat
 from pathlib import Path
+import subprocess
+import re
 import requests
 
 
@@ -16,10 +18,11 @@ def download_ffmpeg():
     - None
 
     ### Returns
-    - None
+    - Path of the downloaded binary
 
     ### Errors raised
-    - None
+    - OS or Architecture not detected
+    - FFmpeg failed to download
     """
 
     sources = {
@@ -63,13 +66,20 @@ def download_ffmpeg():
     current_dir = os.path.dirname(__file__)
     ffmpeg_data = requests.get(link_to_use, allow_redirects=True).content
 
+    # !create "ffmpeg.exe" on windows and "ffmpeg" on other platforms 
     ffmpeg_exec = Path(
-        f"{current_dir}/ffmpeg/bin/ffmpeg" + ".exe" if os_name == "windows" else ""
+        f"{current_dir}/defaults/misc/ffmpeg" + (".exe" if os_name == "windows" else "")
     )
     with open(ffmpeg_exec, "wb") as file:
         file.write(ffmpeg_data)
+    if ffmpeg_exec.exists() is not True:
+        raise Exception(
+            "FFmpeg failed to download. "
+            "Please try again or create an Issue on GitHub."
+        )
     if os_name in ["linux", "darwin"]:
         ffmpeg_exec.chmod(ffmpeg_exec.stat().st_mode | stat.S_IEXEC)
+    return ffmpeg_exec
 
 
 def check_ffmpeg():
@@ -78,9 +88,27 @@ def check_ffmpeg():
     - None
 
     ### Returns
-    - True if FFmpeg is found on PATH
+    - True if FFmpeg is found on PATH or in the directory where it gets downloaded
+    - False if: FFmpeg is not found on PATH OR the version is not compatible
 
     ### Errors raised
-    - False if FFmpeg is not found on PATH
+    - None
     """
-    return bool(shutil.which("ffmpeg") is not None)
+    regex = r"[0-9]\.[0-9]"
+
+    if shutil.which("ffmpeg") is not None:
+        test_str = str(subprocess.check_output(["ffmpeg", "-version"]))
+        ffmpeg_version = re.search(regex, test_str).group()
+        if ffmpeg_version < 4.4:
+            print(f"FFmpeg version is not > or = to 4.2 . You have {ffmpeg_version}")
+            return False
+        else:
+            return True
+    else:
+        os_name = platform.system().lower()
+        current_dir = os.path.dirname(__file__)
+        ffmpeg_exec = Path(
+            f"{current_dir}/defaults/misc/ffmpeg"
+            + (".exe" if os_name == "windows" else "")
+        )
+        return bool(ffmpeg_exec.exists())
