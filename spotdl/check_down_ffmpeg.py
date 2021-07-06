@@ -57,7 +57,7 @@ def download_ffmpeg():
     os_name = platform.system().lower()
     os_arch = platform.machine().lower()
 
-    link_to_use = sources.get(os_name, {}).get(os_arch)
+    link_to_use = sources[os_name][os_arch]
     if link_to_use is None:
         raise Exception(
             "Could not detect architecture or operating system. "
