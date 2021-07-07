@@ -10,3 +10,7 @@ __pycache__/
 *.temp.*
 *.test.*
 *.misc.*
+# This folder stores executables that will get downloaded automatically in a script.
+# Still need to keep the folder however.
+spotdl/defaults/misc/*
+!spotdl/defaults/misc
