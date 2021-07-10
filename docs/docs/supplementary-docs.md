@@ -46,6 +46,8 @@ figure out *what is actually happening*.
   the `./docs/models/flow` folder. (eg. control flow diagrams for
   `./spotDL/defaults/search.py` will go under `.docs/models/flows/defaults/search.md`)
 
+- Styling of the diagrams can be found [here](drawio-styling.md)
+
 - Each control-flow file is to have 4 sections, unnecessary sections can be skipped:
 
   - __ToC (non-optional)__
