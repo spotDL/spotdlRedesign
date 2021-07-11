@@ -1,0 +1,31 @@
+<mxfile>
+    <diagram id="Vn0ScrrAkkDKijQ5AfR3" name="Page-1">
+        <mxGraphModel dx="734" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fillOpacity=0;fontColor=#6EA31D;" parent="1" source="2" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&amp;nbsp; &amp;nbsp;1. get name of the function&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;calling `__setattr__`&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp;2. get names of all class functions" style="whiteSpace=wrap;html=1;align=left;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fillOpacity=0;fontColor=#6EA31D;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="80" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;align=left;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fillOpacity=0;fontColor=#6EA31D;" parent="1" source="4" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="no&lt;br&gt;&amp;nbsp;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fillOpacity=0;fontColor=#6EA31D;" parent="1" source="4" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="name of caller function is one of the class functions?" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fillOpacity=0;fontColor=#6EA31D;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="90" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="set attribute" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fillOpacity=0;fontColor=#6EA31D;" parent="1" vertex="1">
+                    <mxGeometry x="335" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="raise Error" style="whiteSpace=wrap;html=1;strokeColor=#FF8000;sketch=1;labelBackgroundColor=none;fillOpacity=0;fontColor=#6EA31D;" parent="1" vertex="1">
+                    <mxGeometry x="524.5" y="90" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
