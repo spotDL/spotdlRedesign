@@ -1,3 +1,15 @@
+"""
+The `make_frozen` decorator - ensure that class attributes cannot be modified intensionally or
+accidentally except from the classes own member methods.
+
+```python
+test_variable = class_decorated_with_make_frozen()
+
+test_variable.set_name(name="NoName")   # Works just fine
+test_variable.name = "Name"             # FrozenInstanceError
+```
+"""
+
 # ===============
 # === Imports ===
 # ===============

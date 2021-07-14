@@ -1,4 +1,4 @@
-import spotdl.defaults.search.ytm as ytm
+import spotdl.defaults.search.youtube_music as ytm
 import pytest
 
 
